@@ -1,0 +1,14 @@
+.env
+*.env
+backend/.env
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite
+*.sqlite3
+backend/uploads/photos/*
+backend/uploads/notes/*
+venv/
+.venv/
+node_modules/
