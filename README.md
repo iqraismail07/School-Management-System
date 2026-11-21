@@ -10,21 +10,26 @@ database file automatically on first run.
 
 ## Quick start (Windows)
 
-1. Extract the ZIP (keep the folder structure as it is).
-2. Open the inner `sms-school` folder in VS Code and open a terminal there.
-3. Install and run:
+1. Download or clone this repository and open the folder in VS Code.
+2. Install requirements:
 
 ```powershell
 pip install -r requirements.txt
+```
+3. Copy `backend/.env.example` to `backend/.env` and add your Gemini API key
+   (get one free at https://aistudio.google.com/apikey):
+
+```powershell
+copy backend\.env.example backend\.env
+```
+4. Run the app:
+
+```powershell
 python backend/app.py
 ```
+5. Open http://localhost:5000 in your browser.
 
-4. Open **http://localhost:5000** in your browser. The app binds `0.0.0.0:5000`.
-
-That's it — there are no database setup steps. On the first run the app
-creates `backend/data/sms.db` and loads all tables plus the demo data by
-itself. To start completely fresh later, just stop the app, delete
-`backend/data/sms.db`, and run the app again.
+No database setup is needed. On the first run the app creates `backend/data/sms.db` with demo data. To start fresh, stop the app, delete `backend/data/sms.db` and run it again.
 
 ### Demo logins (from seed)
 
