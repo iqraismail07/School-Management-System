@@ -34,10 +34,11 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SMS_SECRET", "sms-school-secret-change-me")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data")
+_WRITE_ROOT = "/tmp" if os.environ.get("VERCEL") else BASE_DIR
+DATA_DIR = os.path.join(_WRITE_ROOT, "data")
 DB_PATH = os.path.join(DATA_DIR, "sms.db")
 os.makedirs(DATA_DIR, exist_ok=True)
-UPLOAD_DIR = os.path.join(BASE_DIR, "uploads")
+UPLOAD_DIR = os.path.join(_WRITE_ROOT, "uploads")
 PHOTO_DIR = os.path.join(UPLOAD_DIR, "photos")
 NOTES_DIR = os.path.join(UPLOAD_DIR, "notes")
 LOGO_DIR = os.path.join(UPLOAD_DIR, "logos")
