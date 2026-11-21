@@ -185,14 +185,18 @@ The software includes an integrated Google Gemini AI Assistant accessible from:
 - **Bilingual**: Understands and answers in both English and Urdu (Urdu Nastaliq and Roman Urdu).
 - **Zero Extra Dependencies**: Calls the official Google Gemini REST API using Python's standard library `urllib` (no heavy third-party packages needed).
 
-### How to configure Gemini API Key
-1. Login as `superadmin` / `super123`.
-2. Go to **Settings** in the sidebar.
-3. Scroll to the **✨ Gemini AI Assistant Configuration** section.
-4. Enter your Gemini API Key (get a free key at [Google AI Studio](https://aistudio.google.com/app/apikey)).
-5. Click **Test Gemini Connection** to verify it is working.
-6. Click **Save AI settings**.
-*Alternatively, you can set the `GEMINI_API_KEY` environment variable in Windows before running `python backend/app.py`.*
+### How to configure the Gemini API key
+
+1. Get a free key at [Google AI Studio](https://aistudio.google.com/apikey).
+2. Open `backend/.env` and set:
+```
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-3.5-flash-lite
+```
+3. Restart the app (`python backend/app.py`).
+4. Login as `superadmin` / `super123`, go to **Settings** and click **Test Gemini Connection** to check that it works.
+The key stays on the server in `.env` and is never shown in the Settings page. Super admin can still edit the custom AI instructions there.
+If you see a 503 "high demand" error, wait a minute and try again.
 
 ## Notes & conventions
 
